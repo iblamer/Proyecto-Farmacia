@@ -35,6 +35,9 @@
             this.DesdedateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.HastadateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.Imprimirbutton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.LaboratoriosdataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,43 +72,79 @@
             // 
             // buscarButton
             // 
-            this.buscarButton.Location = new System.Drawing.Point(453, 29);
+            this.buscarButton.Image = global::ProyectoFinal.Properties.Resources.busqueda;
+            this.buscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buscarButton.Location = new System.Drawing.Point(453, 23);
             this.buscarButton.Name = "buscarButton";
-            this.buscarButton.Size = new System.Drawing.Size(75, 23);
+            this.buscarButton.Size = new System.Drawing.Size(75, 30);
             this.buscarButton.TabIndex = 3;
             this.buscarButton.Text = "Buscar";
+            this.buscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buscarButton.UseVisualStyleBackColor = true;
             this.buscarButton.Click += new System.EventHandler(this.buscarButton_Click);
             // 
             // DesdedateTimePicker
             // 
-            this.DesdedateTimePicker.Location = new System.Drawing.Point(12, 67);
+            this.DesdedateTimePicker.Location = new System.Drawing.Point(57, 67);
             this.DesdedateTimePicker.Name = "DesdedateTimePicker";
             this.DesdedateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.DesdedateTimePicker.TabIndex = 4;
             // 
             // HastadateTimePicker
             // 
-            this.HastadateTimePicker.Location = new System.Drawing.Point(234, 67);
+            this.HastadateTimePicker.Location = new System.Drawing.Point(328, 67);
             this.HastadateTimePicker.Name = "HastadateTimePicker";
             this.HastadateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.HastadateTimePicker.TabIndex = 5;
             // 
             // Imprimirbutton
             // 
-            this.Imprimirbutton.Location = new System.Drawing.Point(12, 324);
+            this.Imprimirbutton.Image = global::ProyectoFinal.Properties.Resources.impresora;
+            this.Imprimirbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Imprimirbutton.Location = new System.Drawing.Point(22, 324);
             this.Imprimirbutton.Name = "Imprimirbutton";
-            this.Imprimirbutton.Size = new System.Drawing.Size(75, 23);
+            this.Imprimirbutton.Size = new System.Drawing.Size(75, 35);
             this.Imprimirbutton.TabIndex = 6;
             this.Imprimirbutton.Text = "Imprimir";
+            this.Imprimirbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Imprimirbutton.UseVisualStyleBackColor = true;
             this.Imprimirbutton.Click += new System.EventHandler(this.Imprimirbutton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Filtro";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(284, 73);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Hasta:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 73);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Desde:";
             // 
             // ConsultaLaboratorios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(540, 359);
+            this.ClientSize = new System.Drawing.Size(540, 369);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Imprimirbutton);
             this.Controls.Add(this.HastadateTimePicker);
             this.Controls.Add(this.DesdedateTimePicker);
@@ -130,5 +169,8 @@
         private System.Windows.Forms.DateTimePicker DesdedateTimePicker;
         private System.Windows.Forms.DateTimePicker HastadateTimePicker;
         private System.Windows.Forms.Button Imprimirbutton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -36,15 +36,17 @@
             this.laboratoriosTableAdapter = new ProyectoFinal.FarmaciaDbDataSetTableAdapters.LaboratoriosTableAdapter();
             this.tableAdapterManager = new ProyectoFinal.FarmaciaDbDataSetTableAdapters.TableAdapterManager();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.FechaIngresotextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.laboratorioIdTextBox = new System.Windows.Forms.TextBox();
             this.nombreTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.farmaciaDbDataSet1 = new ProyectoFinal.FarmaciaDbDataSet();
-            this.FechaIngresotextBox = new System.Windows.Forms.TextBox();
+            this.NombreerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.buscarErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             laboratorioIdLabel = new System.Windows.Forms.Label();
             nombreLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.farmaciaDbDataSet)).BeginInit();
@@ -52,6 +54,8 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.farmaciaDbDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NombreerrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buscarErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // laboratorioIdLabel
@@ -115,6 +119,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registro de laboratorios";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // FechaIngresotextBox
+            // 
+            this.FechaIngresotextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.laboratoriosBindingSource, "Nombre", true));
+            this.FechaIngresotextBox.Location = new System.Drawing.Point(107, 78);
+            this.FechaIngresotextBox.Name = "FechaIngresotextBox";
+            this.FechaIngresotextBox.ReadOnly = true;
+            this.FechaIngresotextBox.Size = new System.Drawing.Size(200, 20);
+            this.FechaIngresotextBox.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Fecha de ingreso:";
             // 
             // GuardarButton
             // 
@@ -181,28 +203,18 @@
             this.nombreTextBox.Size = new System.Drawing.Size(200, 20);
             this.nombreTextBox.TabIndex = 12;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 78);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Fecha de ingreso:";
-            // 
             // farmaciaDbDataSet1
             // 
             this.farmaciaDbDataSet1.DataSetName = "FarmaciaDbDataSet";
             this.farmaciaDbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // FechaIngresotextBox
+            // NombreerrorProvider
             // 
-            this.FechaIngresotextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.laboratoriosBindingSource, "Nombre", true));
-            this.FechaIngresotextBox.Location = new System.Drawing.Point(107, 78);
-            this.FechaIngresotextBox.Name = "FechaIngresotextBox";
-            this.FechaIngresotextBox.ReadOnly = true;
-            this.FechaIngresotextBox.Size = new System.Drawing.Size(200, 20);
-            this.FechaIngresotextBox.TabIndex = 18;
+            this.NombreerrorProvider.ContainerControl = this;
+            // 
+            // buscarErrorProvider
+            // 
+            this.buscarErrorProvider.ContainerControl = this;
             // 
             // RegistroLaboratorios
             // 
@@ -219,6 +231,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.farmaciaDbDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NombreerrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buscarErrorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -239,5 +253,7 @@
         private System.Windows.Forms.Label label1;
         private FarmaciaDbDataSet farmaciaDbDataSet1;
         private System.Windows.Forms.TextBox FechaIngresotextBox;
+        private System.Windows.Forms.ErrorProvider NombreerrorProvider;
+        private System.Windows.Forms.ErrorProvider buscarErrorProvider;
     }
 }

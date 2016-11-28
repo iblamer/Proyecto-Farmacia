@@ -39,13 +39,9 @@
             this.totalTextBox = new System.Windows.Forms.TextBox();
             this.subTotalTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.AgregarButton = new System.Windows.Forms.Button();
             this.MedicinasdataGridView = new System.Windows.Forms.DataGridView();
             this.MedicinascomboBox = new System.Windows.Forms.ComboBox();
             this.BuscarButton = new System.Windows.Forms.Button();
-            this.GuardarButton = new System.Windows.Forms.Button();
-            this.ModificarButton = new System.Windows.Forms.Button();
-            this.EliminarButton = new System.Windows.Forms.Button();
             this.TipoVentacomboBox = new System.Windows.Forms.ComboBox();
             this.DescuentotextBox = new System.Windows.Forms.TextBox();
             this.ItbistextBox = new System.Windows.Forms.TextBox();
@@ -58,6 +54,10 @@
             this.totalErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.idErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.DescuentoerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.EliminarButton = new System.Windows.Forms.Button();
+            this.ModificarButton = new System.Windows.Forms.Button();
+            this.GuardarButton = new System.Windows.Forms.Button();
+            this.AgregarButton = new System.Windows.Forms.Button();
             ventaIdLabel = new System.Windows.Forms.Label();
             fechaVentaLabel = new System.Windows.Forms.Label();
             totalLabel = new System.Windows.Forms.Label();
@@ -157,16 +157,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Medicinas";
             // 
-            // AgregarButton
-            // 
-            this.AgregarButton.Location = new System.Drawing.Point(194, 17);
-            this.AgregarButton.Name = "AgregarButton";
-            this.AgregarButton.Size = new System.Drawing.Size(116, 23);
-            this.AgregarButton.TabIndex = 13;
-            this.AgregarButton.Text = "Agregar";
-            this.AgregarButton.UseVisualStyleBackColor = true;
-            this.AgregarButton.Click += new System.EventHandler(this.button1_Click);
-            // 
             // MedicinasdataGridView
             // 
             this.MedicinasdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -194,35 +184,6 @@
             this.BuscarButton.Text = "Buscar";
             this.BuscarButton.UseVisualStyleBackColor = true;
             this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
-            // 
-            // GuardarButton
-            // 
-            this.GuardarButton.Location = new System.Drawing.Point(26, 448);
-            this.GuardarButton.Name = "GuardarButton";
-            this.GuardarButton.Size = new System.Drawing.Size(79, 41);
-            this.GuardarButton.TabIndex = 15;
-            this.GuardarButton.Text = "Guardar";
-            this.GuardarButton.UseVisualStyleBackColor = true;
-            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
-            // 
-            // ModificarButton
-            // 
-            this.ModificarButton.Location = new System.Drawing.Point(107, 448);
-            this.ModificarButton.Name = "ModificarButton";
-            this.ModificarButton.Size = new System.Drawing.Size(79, 41);
-            this.ModificarButton.TabIndex = 16;
-            this.ModificarButton.Text = "Modificar";
-            this.ModificarButton.UseVisualStyleBackColor = true;
-            // 
-            // EliminarButton
-            // 
-            this.EliminarButton.Location = new System.Drawing.Point(188, 448);
-            this.EliminarButton.Name = "EliminarButton";
-            this.EliminarButton.Size = new System.Drawing.Size(79, 41);
-            this.EliminarButton.TabIndex = 17;
-            this.EliminarButton.Text = "Eliminar";
-            this.EliminarButton.UseVisualStyleBackColor = true;
-            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
             // TipoVentacomboBox
             // 
@@ -309,6 +270,57 @@
             // DescuentoerrorProvider
             // 
             this.DescuentoerrorProvider.ContainerControl = this;
+            // 
+            // EliminarButton
+            // 
+            this.EliminarButton.Image = global::ProyectoFinal.Properties.Resources.borrar;
+            this.EliminarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.EliminarButton.Location = new System.Drawing.Point(188, 448);
+            this.EliminarButton.Name = "EliminarButton";
+            this.EliminarButton.Size = new System.Drawing.Size(79, 41);
+            this.EliminarButton.TabIndex = 17;
+            this.EliminarButton.Text = "Eliminar";
+            this.EliminarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.EliminarButton.UseVisualStyleBackColor = true;
+            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
+            // 
+            // ModificarButton
+            // 
+            this.ModificarButton.Image = global::ProyectoFinal.Properties.Resources.escritor;
+            this.ModificarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ModificarButton.Location = new System.Drawing.Point(107, 448);
+            this.ModificarButton.Name = "ModificarButton";
+            this.ModificarButton.Size = new System.Drawing.Size(79, 41);
+            this.ModificarButton.TabIndex = 16;
+            this.ModificarButton.Text = "Modificar";
+            this.ModificarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ModificarButton.UseVisualStyleBackColor = true;
+            // 
+            // GuardarButton
+            // 
+            this.GuardarButton.Image = global::ProyectoFinal.Properties.Resources.guardar;
+            this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.GuardarButton.Location = new System.Drawing.Point(26, 448);
+            this.GuardarButton.Name = "GuardarButton";
+            this.GuardarButton.Size = new System.Drawing.Size(79, 41);
+            this.GuardarButton.TabIndex = 15;
+            this.GuardarButton.Text = "Guardar";
+            this.GuardarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.GuardarButton.UseVisualStyleBackColor = true;
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
+            // 
+            // AgregarButton
+            // 
+            this.AgregarButton.Image = global::ProyectoFinal.Properties.Resources.anadir;
+            this.AgregarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AgregarButton.Location = new System.Drawing.Point(194, 9);
+            this.AgregarButton.Name = "AgregarButton";
+            this.AgregarButton.Size = new System.Drawing.Size(80, 31);
+            this.AgregarButton.TabIndex = 13;
+            this.AgregarButton.Text = "Agregar";
+            this.AgregarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AgregarButton.UseVisualStyleBackColor = true;
+            this.AgregarButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // RegistroVentas
             // 

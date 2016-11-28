@@ -171,16 +171,36 @@ namespace ProyectoFinal.Registros
 
         private bool Validar()
         {
-            var boxes = Controls.OfType<TextBox>();
-            foreach(var box in boxes)
-            {
-                if (string.IsNullOrEmpty(box.Text))
-                {
-                    errorProvider1.SetError(box, "Por favor llene todos los campor requeridos");
-                    return false;
-                }
+          if(string.IsNullOrEmpty(nombresTextBox.Text) && string.IsNullOrEmpty(nombreUsuarioTextBox.Text) && string.IsNullOrEmpty(claveTextBox.Text) && string.IsNullOrEmpty(casaMaskedTextBox.Text) && string.IsNullOrEmpty(celularMaskedTextBox.Text))
+           {
+                NombreerrorProvider.SetError(nombresTextBox, "Ingrese el nombre");
+                nombreUsuarioerrorProvider.SetError(nombreUsuarioTextBox, "Ingrese el nombre de usuario");
+                ClaveerrorProvider.SetError(claveTextBox, "Ingrese la clave de el usuario");
+                TelefonoerrorProvider.SetError(casaMaskedTextBox, "Ingrese un telefono");
+                return false;
+           }
 
+          if(string.IsNullOrEmpty(nombreUsuarioTextBox.Text))
+            {
+                nombreUsuarioerrorProvider.SetError(nombreUsuarioTextBox, "Ingrese el nombre de usuario");
+                return false;
             }
+          if(string.IsNullOrEmpty(nombreUsuarioTextBox.Text))
+            {
+                NombreerrorProvider.SetError(nombresTextBox, "Ingrese su nombre");
+                return false;
+            }
+          if(string.IsNullOrEmpty(claveTextBox.Text))
+            {
+                ClaveerrorProvider.SetError(claveTextBox, "Ingrese la clave");
+                return false;
+            }
+          if(string.IsNullOrEmpty(casaMaskedTextBox.Text) || string.IsNullOrEmpty(celularMaskedTextBox.Text))
+            {
+                TelefonoerrorProvider.SetError(casaMaskedTextBox, "Ingrese un numero de telefono");
+                return false;
+            }
+            
             return true;
 
         }

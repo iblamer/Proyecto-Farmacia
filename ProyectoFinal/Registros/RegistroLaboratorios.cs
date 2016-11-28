@@ -26,7 +26,7 @@ namespace ProyectoFinal.Registros
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             Laboratorios lab = new Laboratorios();
-            if(Search())
+            if(ValidarId("Ingrese el id de el laboratorio quiere buscar") && Search())
             {
                 Fill(LaboratoriosBLL.Buscar(Utilidades.StringToInt(laboratorioIdTextBox.Text)));
             }
@@ -56,25 +56,28 @@ namespace ProyectoFinal.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            var lab = new Laboratorios();
-            
-            lab.FechaIngreso = DateTime.Now;
-            lab.Nombre = nombreTextBox.Text;
-            
-            if(LaboratoriosBLL.Insertar(lab))
-            {
-                MessageBox.Show("Se guardo el laboratorio");
-            }
+            if (Validacion())
+            { 
+                var lab = new Laboratorios();
 
-            else
-            {
-                MessageBox.Show("Error al guardar");
+                lab.FechaIngreso = DateTime.Now;
+                lab.Nombre = nombreTextBox.Text;
+
+                if (LaboratoriosBLL.Insertar(lab))
+                {
+                    MessageBox.Show("Se guardo el laboratorio");
+                }
+
+                else
+                {
+                    MessageBox.Show("Error al guardar");
+                }
             }
         }
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
-            if(Search())
+            if(ValidarId("Ingrese el id de el laboratorio que quiere eliminar") && Search())
             {
                 LaboratoriosBLL.Eliminar(Utilidades.StringToInt(laboratorioIdTextBox.Text));
                 MessageBox.Show("Se elimino el laboratorio");
@@ -82,6 +85,33 @@ namespace ProyectoFinal.Registros
             else
             {
                 MessageBox.Show("Error al eliminar");
+            }
+        }
+
+        private bool Validacion()
+        {
+            if(string.IsNullOrEmpty(nombreTextBox.Text))
+            {
+                NombreerrorProvider.SetError(nombreTextBox, "Por favor llene todos los campos obligatorios");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool ValidarId(string mensaje)
+        {
+            if(string.IsNullOrEmpty(laboratorioIdTextBox.Text))
+            {
+                buscarErrorProvider.SetError(laboratorioIdTextBox, "Ingrese el id");
+                MessageBox.Show(mensaje);
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
 

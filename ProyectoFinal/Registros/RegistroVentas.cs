@@ -19,7 +19,7 @@ namespace ProyectoFinal.Registros
             InitializeComponent();
         }
 
-        private Ventas venta = new Ventas();
+        private Ventas vent = new Ventas();
     
 
         private void RegistroVentas_Load(object sender, EventArgs e)
@@ -32,9 +32,9 @@ namespace ProyectoFinal.Registros
         {
             List<Medicinas> lista = new List<Medicinas>();
             lista = MedicinasBLL.GetLista(Convert.ToInt32(MedicinascomboBox.SelectedValue));
-            venta.Medicina.AddRange(lista); 
+            vent.Medicina.AddRange(lista); 
             MedicinasdataGridView.DataSource = null;
-            MedicinasdataGridView.DataSource = venta.Medicina;
+            MedicinasdataGridView.DataSource = vent.Medicina;
 
             subTotalTextBox.Text = (from DataGridViewRow row in MedicinasdataGridView.Rows
                                     where row.Cells[3].FormattedValue.ToString() != string.Empty
@@ -103,6 +103,8 @@ namespace ProyectoFinal.Registros
             if (ValidarId("Ingrese el id de la venta que quiere buscar") &&Search()) 
             {
                 Fill( VentasBLL.Buscar(Utilidades.StringToInt(ventaIdTextBox.Text)));
+                MedicinasdataGridView.DataSource = null;
+                MedicinasdataGridView.DataSource = vent.Medicina;
             }
         }
 
@@ -112,9 +114,7 @@ namespace ProyectoFinal.Registros
             totalTextBox.Text = venta.Total.ToString();
             subTotalTextBox.Text = venta.SubTotal.ToString();
             TipoVentacomboBox.SelectedIndex = venta.TipoVentaId;
-            var lista = new List<Medicinas>();
-            MedicinasdataGridView.DataSource = null;
-            MedicinasdataGridView.DataSource = venta.Medicina;
+            
 
         }
 

@@ -39,9 +39,10 @@ namespace BLL
 
         public static Ventas Buscar(int id)
         {
+            Ventas venta = null;
             using (var db = new FarmaciaDb())
             {
-                Ventas venta = db.Venta.Find(id);
+                venta = db.Venta.Find(id);
                 if (venta != null)
                 {
                     venta.Medicina.Count();
