@@ -47,6 +47,7 @@
             this.farmaciaDbDataSet1 = new ProyectoFinal.FarmaciaDbDataSet();
             this.NombreerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.buscarErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             laboratorioIdLabel = new System.Windows.Forms.Label();
             nombreLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.farmaciaDbDataSet)).BeginInit();
@@ -102,6 +103,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.FechaIngresotextBox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.GuardarButton);
@@ -142,7 +144,7 @@
             // 
             this.GuardarButton.Image = global::ProyectoFinal.Properties.Resources.guardar;
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GuardarButton.Location = new System.Drawing.Point(12, 102);
+            this.GuardarButton.Location = new System.Drawing.Point(37, 104);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(75, 37);
             this.GuardarButton.TabIndex = 16;
@@ -216,6 +218,16 @@
             // 
             this.buscarErrorProvider.ContainerControl = this;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(199, 104);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 37);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Nuevo";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // RegistroLaboratorios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,5 +267,6 @@
         private System.Windows.Forms.TextBox FechaIngresotextBox;
         private System.Windows.Forms.ErrorProvider NombreerrorProvider;
         private System.Windows.Forms.ErrorProvider buscarErrorProvider;
+        private System.Windows.Forms.Button button1;
     }
 }

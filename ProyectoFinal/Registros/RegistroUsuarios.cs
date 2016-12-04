@@ -53,15 +53,23 @@ namespace ProyectoFinal.Registros
             if (Validar())
             {
                 LlenarClases(usuario);
-
-                if (UsuariosBLL.Insertar(usuario) && ValidarExiste(nombreUsuarioTextBox.Text))
+                if (UsuariosBLL.GetLista(Utilidades.StringToInt(usuarioIdTextBox.Text)).Count() == 0)
                 {
-                    MessageBox.Show("Se guardo el usuario!");
-                    limpiar();
+                    if (UsuariosBLL.Insertar(usuario) && ValidarExiste(nombreUsuarioTextBox.Text))
+                    {
+                        MessageBox.Show("Se guardo el usuario!");
+                        limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al guardar el usuario");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Error al guardar el usuario");
+                    UsuariosBLL.Modificar(Utilidades.StringToInt(usuarioIdTextBox.Text), usuario);
+                    MessageBox.Show("Se modifico el usuario");
+                    limpiar();
                 }
             }
         }
@@ -131,13 +139,24 @@ namespace ProyectoFinal.Registros
 
         private void ModificarButton_Click(object sender, EventArgs e)
         {
-            Usuarios usuario = new Usuarios();
-            LlenarClases(usuario);  
-            UsuariosBLL.Modificar(Utilidades.StringToInt(usuarioIdTextBox.Text),usuario);
+            ClearTextBoxes();
+           
+        }
 
-            MessageBox.Show("Se actualizo el usuario");
-            
+        private void ClearTextBoxes()
+        {
+            Action<Control.ControlCollection> func = null;
 
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is TextBox)
+                        (control as TextBox).Clear();
+                    else
+                        func(control.Controls);
+            };
+
+            func(Controls);
         }
 
         private void usuariosBindingSource_CurrentChanged(object sender, EventArgs e)

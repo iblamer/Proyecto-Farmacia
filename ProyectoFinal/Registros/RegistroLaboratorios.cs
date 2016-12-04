@@ -62,15 +62,22 @@ namespace ProyectoFinal.Registros
 
                 lab.FechaIngreso = DateTime.Now;
                 lab.Nombre = nombreTextBox.Text;
-
-                if (LaboratoriosBLL.Insertar(lab))
+                if (LaboratoriosBLL.GetLista(Utilidades.StringToInt(laboratorioIdTextBox.Text)).Count() == 0)
                 {
-                    MessageBox.Show("Se guardo el laboratorio");
-                }
+                    if (LaboratoriosBLL.Insertar(lab))
+                    {
+                        MessageBox.Show("Se guardo el laboratorio");
+                    }
 
+                    else
+                    {
+                        MessageBox.Show("Error al guardar");
+                    }
+                }
                 else
                 {
-                    MessageBox.Show("Error al guardar");
+                    LaboratoriosBLL.Modificar(Utilidades.StringToInt(laboratorioIdTextBox.Text), lab);
+                    MessageBox.Show("Se modifico el laboratorio");
                 }
             }
         }
@@ -118,6 +125,12 @@ namespace ProyectoFinal.Registros
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            laboratorioIdTextBox.Clear();
+            nombreTextBox.Clear();
         }
     }
 }

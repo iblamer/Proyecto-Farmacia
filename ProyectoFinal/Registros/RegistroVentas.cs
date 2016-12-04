@@ -14,12 +14,14 @@ namespace ProyectoFinal.Registros
 {
         public partial class RegistroVentas : Form
         {
+        private Ventas vent;
         public RegistroVentas()
         {
             InitializeComponent();
+            vent = new Ventas();
         }
 
-        private Ventas vent = new Ventas();
+      
     
 
         private void RegistroVentas_Load(object sender, EventArgs e)
@@ -30,9 +32,8 @@ namespace ProyectoFinal.Registros
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<Medicinas> lista = new List<Medicinas>();
-            lista = MedicinasBLL.GetLista(Convert.ToInt32(MedicinascomboBox.SelectedValue));
-            vent.Medicina.AddRange(lista); 
+
+            vent.Medicina.Add(MedicinasBLL.Buscar((int)MedicinascomboBox.SelectedValue)); 
             MedicinasdataGridView.DataSource = null;
             MedicinasdataGridView.DataSource = vent.Medicina;
 
@@ -63,14 +64,22 @@ namespace ProyectoFinal.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            var v = new Ventas();
 
             if (Validacion())
             {
-                LlenarClases(v);
-
-                VentasBLL.Insertar(v);
-                MessageBox.Show("Se guardo la venta realizada");
+                LlenarClases(vent);
+                if (VentasBLL.GetLista(Utilidades.StringToInt(ventaIdTextBox.Text)).Count() == 0)
+                {
+                    VentasBLL.Insertar(vent);
+                    MessageBox.Show("Se guardo la venta realizada");
+                    limpiar();
+                }
+                else
+                {
+                    VentasBLL.Modificar(Utilidades.StringToInt(ventaIdTextBox.Text), vent);
+                    MessageBox.Show("Se modifico la venta");
+                    limpiar();
+                }
           
             }
 
@@ -103,8 +112,6 @@ namespace ProyectoFinal.Registros
             if (ValidarId("Ingrese el id de la venta que quiere buscar") &&Search()) 
             {
                 Fill( VentasBLL.Buscar(Utilidades.StringToInt(ventaIdTextBox.Text)));
-                MedicinasdataGridView.DataSource = null;
-                MedicinasdataGridView.DataSource = vent.Medicina;
             }
         }
 
@@ -114,6 +121,8 @@ namespace ProyectoFinal.Registros
             totalTextBox.Text = venta.Total.ToString();
             subTotalTextBox.Text = venta.SubTotal.ToString();
             TipoVentacomboBox.SelectedIndex = venta.TipoVentaId;
+            MedicinasdataGridView.DataSource = null;
+            MedicinasdataGridView.DataSource = venta.Medicina;
             
 
         }
@@ -225,12 +234,44 @@ namespace ProyectoFinal.Registros
         private void limpiar()
         {
             totalTextBox.Clear();
+
             subTotalTextBox.Clear();
-            MedicinasdataGridView.Rows.Clear();
+            MedicinasdataGridView.Columns.Clear();
             MedicinasdataGridView.Refresh();
-            MedicinascomboBox.SelectedIndex = 0;
+            MedicinasdataGridView.DataSource = null;
             ItbisradioButton.Checked = false;
             DescuentoradioButton.Checked = false;              
+        }
+
+        private void ModificarButton_Click(object sender, EventArgs e)
+        {
+            
+            limpiar();
+        }
+
+        private void ClearTextBoxes()
+        {
+            Action<Control.ControlCollection> func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is TextBox )
+                    {
+                        (control as TextBox).Clear();
+                    }
+
+                    else
+                        func(control.Controls);
+            };
+
+            func(Controls);
+        }
+
+        private void ClearGrid()
+        {
+            MedicinasdataGridView.Rows.Clear();
+            MedicinasdataGridView.Refresh();
         }
 
     }

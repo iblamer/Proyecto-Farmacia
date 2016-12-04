@@ -250,7 +250,7 @@
             this.ModificarButton.Name = "ModificarButton";
             this.ModificarButton.Size = new System.Drawing.Size(84, 40);
             this.ModificarButton.TabIndex = 35;
-            this.ModificarButton.Text = "Modificar";
+            this.ModificarButton.Text = "Nuevo";
             this.ModificarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ModificarButton.UseVisualStyleBackColor = true;
             this.ModificarButton.Click += new System.EventHandler(this.ModificarButton_Click);

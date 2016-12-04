@@ -33,16 +33,27 @@ namespace ProyectoFinal.Registros
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
             Medicinas medicina = new Medicinas();
-            LlenarClases(medicina);
+            if (Validacion())
+            {
+                LlenarClases(medicina);
 
-            if(MedicinasBLL.Insertar(medicina))
-            {
-                MessageBox.Show("Se inserto la medician");
-                Limpiar();
-            }
-            else
-            {
-                MessageBox.Show("Error al insertar la medicina");
+                if (MedicinasBLL.GetLista(Utilidades.StringToInt(medicinaIdTextBox.Text)).Count() == 0)
+                {
+                    if (MedicinasBLL.Insertar(medicina))
+                    {
+                        MessageBox.Show("Se inserto la medician");
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al insertar la medicina");
+                    }
+                }
+                else
+                {
+                    MedicinasBLL.Modificar(Utilidades.StringToInt(medicinaIdTextBox.Text), medicina);
+                    MessageBox.Show("Se modifico la medicina");
+                }
             }
         }
 
@@ -122,16 +133,28 @@ namespace ProyectoFinal.Registros
 
         private void ModificarButton_Click(object sender, EventArgs e)
         {
-            if (Search())
+
+            ClearTextBoxes();
+        }
+
+        private void ClearTextBoxes()
+        {
+            Action<Control.ControlCollection> func = null;
+
+            func = (controls) =>
             {
-                Medicinas med = new Medicinas();
-                LlenarClases(med);
+                foreach (Control control in controls)
+                    if (control is TextBox || control is MaskedTextBox)
+                    {
+                        (control as TextBox).Clear();
+                        (control as MaskedTextBox).Clear();
+                    }
 
-                MedicinasBLL.Modificar(Utilidades.StringToInt(medicinaIdTextBox.Text), med);
+                    else
+                        func(control.Controls);
+            };
 
-                MessageBox.Show("Se elimino la medicina");
-            }
-           
+            func(Controls);
         }
 
         private void LlenaCombo()
@@ -158,6 +181,21 @@ namespace ProyectoFinal.Registros
                 OtrostextBox.Visible = false;
             }
 
+        }
+
+        private bool Validacion()
+        {
+            var boxes = Controls.OfType<TextBox>();
+
+            foreach (var box in boxes)
+            {
+                if (string.IsNullOrWhiteSpace(box.Text))
+                {
+                    errorProvider1.SetError(box, "Please fill the required field");
+                    return false;
+                }
+            }
+            return true;
         }
 
        

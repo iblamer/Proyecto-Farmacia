@@ -39,6 +39,7 @@
             this.totalTextBox = new System.Windows.Forms.TextBox();
             this.subTotalTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.AgregarButton = new System.Windows.Forms.Button();
             this.MedicinasdataGridView = new System.Windows.Forms.DataGridView();
             this.MedicinascomboBox = new System.Windows.Forms.ComboBox();
             this.BuscarButton = new System.Windows.Forms.Button();
@@ -57,7 +58,6 @@
             this.EliminarButton = new System.Windows.Forms.Button();
             this.ModificarButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
-            this.AgregarButton = new System.Windows.Forms.Button();
             ventaIdLabel = new System.Windows.Forms.Label();
             fechaVentaLabel = new System.Windows.Forms.Label();
             totalLabel = new System.Windows.Forms.Label();
@@ -156,6 +156,19 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Medicinas";
+            // 
+            // AgregarButton
+            // 
+            this.AgregarButton.Image = global::ProyectoFinal.Properties.Resources.anadir;
+            this.AgregarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AgregarButton.Location = new System.Drawing.Point(194, 9);
+            this.AgregarButton.Name = "AgregarButton";
+            this.AgregarButton.Size = new System.Drawing.Size(80, 31);
+            this.AgregarButton.TabIndex = 13;
+            this.AgregarButton.Text = "Agregar";
+            this.AgregarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AgregarButton.UseVisualStyleBackColor = true;
+            this.AgregarButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // MedicinasdataGridView
             // 
@@ -292,9 +305,10 @@
             this.ModificarButton.Name = "ModificarButton";
             this.ModificarButton.Size = new System.Drawing.Size(79, 41);
             this.ModificarButton.TabIndex = 16;
-            this.ModificarButton.Text = "Modificar";
+            this.ModificarButton.Text = "Nuevo";
             this.ModificarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ModificarButton.UseVisualStyleBackColor = true;
+            this.ModificarButton.Click += new System.EventHandler(this.ModificarButton_Click);
             // 
             // GuardarButton
             // 
@@ -308,19 +322,6 @@
             this.GuardarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.GuardarButton.UseVisualStyleBackColor = true;
             this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
-            // 
-            // AgregarButton
-            // 
-            this.AgregarButton.Image = global::ProyectoFinal.Properties.Resources.anadir;
-            this.AgregarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AgregarButton.Location = new System.Drawing.Point(194, 9);
-            this.AgregarButton.Name = "AgregarButton";
-            this.AgregarButton.Size = new System.Drawing.Size(80, 31);
-            this.AgregarButton.TabIndex = 13;
-            this.AgregarButton.Text = "Agregar";
-            this.AgregarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.AgregarButton.UseVisualStyleBackColor = true;
-            this.AgregarButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // RegistroVentas
             // 

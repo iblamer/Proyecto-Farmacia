@@ -45,7 +45,7 @@ namespace BLL
             {
                 var laboratorio = new Laboratorios();
 
-                db.Laboratorio.Find(id);
+                laboratorio = db.Laboratorio.Find(id);
 
                 db.Laboratorio.Remove(laboratorio);
                 db.SaveChanges();
@@ -57,8 +57,10 @@ namespace BLL
             using (var db = new FarmaciaDb())
             {
                 var lab = new Laboratorios();
+                lab = db.Laboratorio.Find(id);
 
                 lab.Nombre = laboratorio.Nombre;
+                db.SaveChanges();
             }
         }
 

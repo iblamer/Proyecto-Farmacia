@@ -45,6 +45,12 @@ namespace ProyectoFinal.Consultas
                 {
                     VentasdataGridView.DataSource = VentasBLL.GetLista(Utilidades.StringToInt(filtroTextBox.Text));
                 }
+
+                if(filtroComboBox.SelectedIndex == 4)
+
+                {
+                    VentasdataGridView.DataSource = VentasBLL.GetListaDetalle(Utilidades.StringToInt(filtroComboBox.Text));
+                }
             }
         }
 

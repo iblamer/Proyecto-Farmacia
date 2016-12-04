@@ -40,6 +40,10 @@
             System.Windows.Forms.Label especificacionesLabel;
             System.Windows.Forms.Label categoriaIdLabel;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.otroslbl = new System.Windows.Forms.Label();
+            this.OtrostextBox = new System.Windows.Forms.TextBox();
+            this.DescripcionrichTextBox = new System.Windows.Forms.RichTextBox();
+            this.EspecificacionesrichTextBox = new System.Windows.Forms.RichTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ModificarButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -57,10 +61,7 @@
             this.cantidadExistenciaTextBox = new System.Windows.Forms.TextBox();
             this.medicinasTableAdapter = new ProyectoFinal.FarmaciaDbDataSetTableAdapters.MedicinasTableAdapter();
             this.tableAdapterManager = new ProyectoFinal.FarmaciaDbDataSetTableAdapters.TableAdapterManager();
-            this.EspecificacionesrichTextBox = new System.Windows.Forms.RichTextBox();
-            this.DescripcionrichTextBox = new System.Windows.Forms.RichTextBox();
-            this.OtrostextBox = new System.Windows.Forms.TextBox();
-            this.otroslbl = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             medicinaIdLabel = new System.Windows.Forms.Label();
             nombreLabel = new System.Windows.Forms.Label();
             descripcionLabel = new System.Windows.Forms.Label();
@@ -75,6 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicinasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.farmaciaDbDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // medicinaIdLabel
@@ -204,6 +206,38 @@
             this.groupBox1.Text = "Registro de medicinas";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // otroslbl
+            // 
+            this.otroslbl.AutoSize = true;
+            this.otroslbl.Location = new System.Drawing.Point(11, 356);
+            this.otroslbl.Name = "otroslbl";
+            this.otroslbl.Size = new System.Drawing.Size(35, 13);
+            this.otroslbl.TabIndex = 28;
+            this.otroslbl.Text = "Otros:";
+            // 
+            // OtrostextBox
+            // 
+            this.OtrostextBox.Location = new System.Drawing.Point(120, 349);
+            this.OtrostextBox.Name = "OtrostextBox";
+            this.OtrostextBox.Size = new System.Drawing.Size(200, 20);
+            this.OtrostextBox.TabIndex = 27;
+            // 
+            // DescripcionrichTextBox
+            // 
+            this.DescripcionrichTextBox.Location = new System.Drawing.Point(120, 90);
+            this.DescripcionrichTextBox.Name = "DescripcionrichTextBox";
+            this.DescripcionrichTextBox.Size = new System.Drawing.Size(200, 45);
+            this.DescripcionrichTextBox.TabIndex = 26;
+            this.DescripcionrichTextBox.Text = "";
+            // 
+            // EspecificacionesrichTextBox
+            // 
+            this.EspecificacionesrichTextBox.Location = new System.Drawing.Point(120, 271);
+            this.EspecificacionesrichTextBox.Name = "EspecificacionesrichTextBox";
+            this.EspecificacionesrichTextBox.Size = new System.Drawing.Size(200, 45);
+            this.EspecificacionesrichTextBox.TabIndex = 25;
+            this.EspecificacionesrichTextBox.Text = "";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ProyectoFinal.Properties.Resources.medicina__1_;
@@ -222,7 +256,7 @@
             this.ModificarButton.Name = "ModificarButton";
             this.ModificarButton.Size = new System.Drawing.Size(79, 45);
             this.ModificarButton.TabIndex = 23;
-            this.ModificarButton.Text = "Modificar";
+            this.ModificarButton.Text = "Nuevo";
             this.ModificarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ModificarButton.UseVisualStyleBackColor = true;
             this.ModificarButton.Click += new System.EventHandler(this.ModificarButton_Click);
@@ -357,37 +391,9 @@
             this.tableAdapterManager.UsuariosTableAdapter = null;
             this.tableAdapterManager.VentasTableAdapter = null;
             // 
-            // EspecificacionesrichTextBox
+            // errorProvider1
             // 
-            this.EspecificacionesrichTextBox.Location = new System.Drawing.Point(120, 271);
-            this.EspecificacionesrichTextBox.Name = "EspecificacionesrichTextBox";
-            this.EspecificacionesrichTextBox.Size = new System.Drawing.Size(200, 45);
-            this.EspecificacionesrichTextBox.TabIndex = 25;
-            this.EspecificacionesrichTextBox.Text = "";
-            // 
-            // DescripcionrichTextBox
-            // 
-            this.DescripcionrichTextBox.Location = new System.Drawing.Point(120, 90);
-            this.DescripcionrichTextBox.Name = "DescripcionrichTextBox";
-            this.DescripcionrichTextBox.Size = new System.Drawing.Size(200, 45);
-            this.DescripcionrichTextBox.TabIndex = 26;
-            this.DescripcionrichTextBox.Text = "";
-            // 
-            // OtrostextBox
-            // 
-            this.OtrostextBox.Location = new System.Drawing.Point(120, 349);
-            this.OtrostextBox.Name = "OtrostextBox";
-            this.OtrostextBox.Size = new System.Drawing.Size(200, 20);
-            this.OtrostextBox.TabIndex = 27;
-            // 
-            // otroslbl
-            // 
-            this.otroslbl.AutoSize = true;
-            this.otroslbl.Location = new System.Drawing.Point(11, 356);
-            this.otroslbl.Name = "otroslbl";
-            this.otroslbl.Size = new System.Drawing.Size(35, 13);
-            this.otroslbl.TabIndex = 28;
-            this.otroslbl.Text = "Otros:";
+            this.errorProvider1.ContainerControl = this;
             // 
             // RegistroMedicinas
             // 
@@ -403,6 +409,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicinasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.farmaciaDbDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -431,5 +438,6 @@
         private System.Windows.Forms.RichTextBox EspecificacionesrichTextBox;
         private System.Windows.Forms.Label otroslbl;
         private System.Windows.Forms.TextBox OtrostextBox;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

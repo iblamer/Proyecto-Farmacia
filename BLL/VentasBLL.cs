@@ -63,12 +63,6 @@ namespace BLL
 
                 db.Venta.Remove(venta);
 
-                var detalle = (from d in db.VentaDetalle
-                               where id == d.Id
-                               select d).FirstOrDefault();
-
-                db.VentaDetalle.Remove(detalle);
-
                 db.SaveChanges();
             }
 
@@ -125,6 +119,21 @@ namespace BLL
             var db = new FarmaciaDb();
 
             lista = db.Venta.Where(v => v.TipoVentaId == tipo).ToList();
+
+            return lista;
+        }
+
+        public static List<Ventas>GetListaDetalle(int id)
+        {
+            var lista = new List<Ventas>();
+            var db = new FarmaciaDb();
+
+            lista = db.Venta.Join(db.Medicina,
+                v => v.VentaId,
+                vm => vm.MedicinaId,
+                (v, vm) => new { venta = v, medicina = vm })
+                .Where(vvm => vvm.medicina.MedicinaId == 1)
+                .Select(vvm => vvm.venta).ToList();
 
             return lista;
         }

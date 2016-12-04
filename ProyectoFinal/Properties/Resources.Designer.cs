@@ -93,6 +93,16 @@ namespace ProyectoFinal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cropped_18618676_pharmacy_seamless_pattern_pharmacy_medicine_medical {
+            get {
+                object obj = ResourceManager.GetObject("cropped-18618676-pharmacy-seamless-pattern-pharmacy-medicine-medical", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap escritor {
             get {
                 object obj = ResourceManager.GetObject("escritor", resourceCulture);

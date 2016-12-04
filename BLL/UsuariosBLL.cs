@@ -128,6 +128,17 @@ namespace BLL
             return lista;
         }
 
-        
+        public static List<Usuarios> GetListaContrasena(string pw)
+        {
+            var lista = new List<Usuarios>();
+            var db = new FarmaciaDb();
+
+            lista = db.Usuario.Where(u => u.Clave == pw).ToList();
+
+            return lista;
+        }
+
+
+
     }
 }

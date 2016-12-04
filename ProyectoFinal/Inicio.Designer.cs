@@ -108,28 +108,28 @@
             // usuariosToolStripMenuItem1
             // 
             this.usuariosToolStripMenuItem1.Name = "usuariosToolStripMenuItem1";
-            this.usuariosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.usuariosToolStripMenuItem1.Size = new System.Drawing.Size(140, 22);
             this.usuariosToolStripMenuItem1.Text = "Usuarios";
             this.usuariosToolStripMenuItem1.Click += new System.EventHandler(this.usuariosToolStripMenuItem1_Click);
             // 
             // mediciansToolStripMenuItem
             // 
             this.mediciansToolStripMenuItem.Name = "mediciansToolStripMenuItem";
-            this.mediciansToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mediciansToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.mediciansToolStripMenuItem.Text = "Medicinas";
             this.mediciansToolStripMenuItem.Click += new System.EventHandler(this.mediciansToolStripMenuItem_Click);
             // 
             // laboratoriosToolStripMenuItem1
             // 
             this.laboratoriosToolStripMenuItem1.Name = "laboratoriosToolStripMenuItem1";
-            this.laboratoriosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.laboratoriosToolStripMenuItem1.Size = new System.Drawing.Size(140, 22);
             this.laboratoriosToolStripMenuItem1.Text = "Laboratorios";
             this.laboratoriosToolStripMenuItem1.Click += new System.EventHandler(this.laboratoriosToolStripMenuItem1_Click);
             // 
             // ventasToolStripMenuItem1
             // 
             this.ventasToolStripMenuItem1.Name = "ventasToolStripMenuItem1";
-            this.ventasToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.ventasToolStripMenuItem1.Size = new System.Drawing.Size(140, 22);
             this.ventasToolStripMenuItem1.Text = "Ventas";
             this.ventasToolStripMenuItem1.Click += new System.EventHandler(this.ventasToolStripMenuItem1_Click);
             // 
@@ -139,15 +139,15 @@
             this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
             // 
-            // LogIn
+            // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(607, 425);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "LogIn";
-            this.Text = "LogIn";
+            this.Name = "Inicio";
+            this.Text = "Inicio";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

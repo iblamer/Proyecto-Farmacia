@@ -44,7 +44,7 @@ namespace BLL
             using (var db = new FarmaciaDb())
             {
                 var med = new Medicinas();
-                db.Medicina.Find(id);
+                med = db.Medicina.Find(id);
 
                 db.Medicina.Remove(med);
                 db.SaveChanges();
@@ -55,7 +55,7 @@ namespace BLL
         {
             using (var db = new FarmaciaDb())
             {
-                var med = new Medicinas();
+                Medicinas med = db.Medicina.Find(id);
 
                 med.Nombre = medicina.Nombre;
                 med.Descripcion = medicina.Descripcion;
